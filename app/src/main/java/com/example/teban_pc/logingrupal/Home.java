@@ -6,8 +6,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 public class Home extends AppCompatActivity {
+ TextView resultado;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +18,15 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        resultado=(TextView)  findViewById(R.id.txtHome);
+
+
+        String usuario  = getIntent().getStringExtra("usuario");
+        String contraseña  = getIntent().getStringExtra("contraseña");
+
+        resultado.setText("bienvenido: "+usuario+" su contraseña es"+contraseña);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
