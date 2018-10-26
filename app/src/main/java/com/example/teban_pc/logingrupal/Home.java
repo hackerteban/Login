@@ -12,10 +12,7 @@ import android.widget.TextView;
 
 public class Home extends AppCompatActivity {
 
-    TextView txtUsuario;
-    TextView txtClave;
-    Button btnLogin;
-    Button btnCancelar;
+    TextView txtHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +21,11 @@ public class Home extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        txtUsuario=(TextView) findViewById(R.id.txtUsuario);
-        txtClave=(TextView) findViewById(R.id.txtClave);
-        btnLogin=(Button) findViewById(R.id.btnLogin);
-        btnCancelar=(Button) findViewById(R.id.btnCancelar);
+        txtHome=(TextView) findViewById(R.id.txtHome);
+
+        String usuario = getIntent().getStringExtra("usuario");
+        String clave = getIntent().getStringExtra("contraseña");
+        txtHome.setText("Su correo: "+usuario+" su contraseña: "+clave+" ");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -39,30 +37,5 @@ public class Home extends AppCompatActivity {
         });
     }
 
-    public void mostrarMensaje(View view){
-        String Usser="jtorresp";
-        String Pass="123456";
-
-        String usuario=txtUsuario.getText().toString();
-        String contrasena=txtClave.getText().toString();
-
-        switch(view.getId()){
-            case(R.id.btnLogin):
-                if(usuario.equals(Usser) && contrasena.equals(Pass)){
-                    Intent irVentana = new Intent(this, Home.class);
-                    irVentana.putExtra("nombre_01",Usser);
-                    irVentana.putExtra("nombre_01",Pass);
-                    startActivity(irVentana);
-                }else {
-                    Intent irVentana = new Intent(this, Error.class);
-                    startActivity(irVentana);
-                }
-                break;
-            case(R.id.btnCancelar):
-                txtUsuario.setText(null);
-                txtClave.setText(null);
-                break;
-        }
-    }
 
 }

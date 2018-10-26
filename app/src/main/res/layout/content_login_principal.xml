@@ -83,14 +83,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="LOGIN" />
+                android:text="LOGIN"
+                android:onClick="mostrarMensaje"/>
 
             <Button
                 android:id="@+id/btnCancelar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="CANCELAR" />
+                android:text="CANCELAR"
+                android:onClick="mostrarMensaje"/>
         </LinearLayout>
 
         <LinearLayout
